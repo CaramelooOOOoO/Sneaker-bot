@@ -1,0 +1,36 @@
+import requests
+import json
+
+
+def search(query):
+    url = f'https://stockx.com/api/browse?_search={query}'
+
+    headers = {
+        'accept': 'application/json',
+        'accept-encoding': 'utf-8',
+        'accept-language': 'en-GB,en;q=0.9',
+        'app-platform': 'Iron',
+        'referer': 'https://stockx.com/en-gb',
+        'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.62 Safari/537.36',
+        'x-requested-with': 'XMLHttpRequest'
+    }
+
+    html = requests.get(url=url, headers=headers)
+    output = json.loads(html.text)
+    return output['Products'][0]
+    
+#print(search("dunk"))
+
+
+
+#'shortDescription': Sirve para encontrar el nombre
+
+
+
+#{'id': '5e6a1e57-1c7d-435a-82bd-5666a13560fe', 'uuid': '5e6a1e57-1c7d-435a-82bd-5666a13560fe', 'brand': 'Nike', 'browseVerticals': ['sneakers'], 'category': 'Nike Dunk', 'charityCondition': 0, 'colorway': 'White/Black', 'condition': 'New', 'countryOfManufacture': 'CN', 'dataType': 'product', 'description': 'From the school-spirited College Colors Program to the vibrant Nike CO.JP collection, Nike Dunks have seen many colorways since the design’s inception in 1985. But with each new colorway, the Dunk’s classic color-blocking has remained in some capacity. Nike put its timeless color-blocking to work with the Nike Dunk Low Retro White Black.\n<br>\n<br>\nThe upper Nike Dunk Low Retro White Black is constructed of white leather with black leather overlays and Swooshes. Classic Nike branding is featured on the nylon tongue, nodding to traditional Dunk design elements. A white midsole and black outsole completes the design.\n<br>\n<br>\nThe Nike Dunk Low Retro White Black released in January of 2021 and retailed for $100.\n', 'hidden': False, 'listingType': 'standard', 'minimumBid': 1, 'gender': 'men', 'media': {'imageUrl': 'https://images.stockx.com/images/Nike-Dunk-Low-Retro-White-Black-2021-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1633027409', 'smallImageUrl': 'https://images.stockx.com/images/Nike-Dunk-Low-Retro-White-Black-2021-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1633027409', 'thumbUrl': 'https://images.stockx.com/images/Nike-Dunk-Low-Retro-White-Black-2021-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=100&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1633027409', 'gallery': [], 'hidden': False}, 'name': 'White Black Panda (2021)', 'productCategory': 'sneakers', 'releaseDate': '2021-03-10', 'releaseTime': 1615334400, 'belowRetail': False, 'retailPrice': 110, 'shoe': 'Nike Dunk Low Retro', 'shortDescription': 'Nike-Dunk-Low-Retro-White-Black-2021', 'styleId': 'DD1391-100', 'tickerSymbol': 'NK-NIDLRWBWBK', 'title': 'Nike Dunk Low Retro White Black Panda (2021)', 'calculated_display_title': {'ja-JP': 'ナイキ ダンク ロー レトロ "ホワイト/ブラック" Nike Dunk Low Retro "White Black Panda (2021)" '}, 'traits': [{'name': 'Style', 'value': 'DD1391-100', 'filterable': True, 'visible': True, 'highlight': True}, {'name': 'Colorway', 'value': 'White/Black', 'filterable': True, 'visible': True, 'highlight': True}, {'name': 'Retail Price', 'value': 110, 'filterable': True, 'visible': True, 'highlight': False}, {'name': 'Release Date', 'value': '2021-03-10', 'filterable': True, 'visible': True, 'highlight': False}, {'name': 'Estimated Retail Price', 'value': '0', 'filterable': False, 'visible': False, 'highlight': False}, {'name': 'Featured', 'value': False, 'filterable': False, 'visible': False, 'highlight': False}], 'type': 0, 'urlKey': 'nike-dunk-low-retro-white-black-2021', 'year': 2021, 'market': {'productId': 0, 'skuUuid': '', 'productUuid': '5e6a1e57-1c7d-435a-82bd-5666a13560fe', 'lowestAsk': 177, 'lowestAskSize': '9', 'parentLowestAsk': 0, 'numberOfAsks': 3002, 'hasAsks': 1, 'salesThisPeriod': 2430, 'salesLastPeriod': 0, 'highestBid': 245, 'highestBidSize': '4', 'numberOfBids': 1947, 'hasBids': 1, 'annualHigh': 1022, 'annualLow': 0, 'deadstockRangeLow': 191, 'deadstockRangeHigh': 223, 'volatility': 0.076875, 'deadstockSold': 158459, 'pricePremium': 0.882, 'averageDeadstockPrice': 243, 'lastSale': 207, 'lastSaleSize': '10.5', 'salesLast72Hours': 2430, 'changeValue': -24, 'changePercentage': -0.105391, 'absChangePercentage': 0.105391, 'totalDollars': 38430995, 'lastLowestAskTime': 1660753397, 'lastHighestBidTime': 1660753497, 'lastSaleDate': '2022-08-17T16:23:47+00:00', 'createdAt': '2020-05-27T05:13:18+00:00', 'updatedAt': 1660753517, 'deadstockSoldRank': 25, 'pricePremiumRank': 76, 'averageDeadstockPriceRank': 67, 'featured': 0}, '_tags': ['sneakers', 'nike', 'nike', 'dunk', 'low', 'colorway|white/black', 'release_date|2021-03-10', 'retail_price|110', 'style_id|dd1391-100'], 'lock_selling': False, 'selling_countries': ['AD', 'AE', 'AG', 'AL', 'AR', 'AS', 'AT', 'AU', 'BA', 'BB', 'BE', 'BG', 'BH', 'BM', 'BR', 'BS', 'BW', 'BZ', 'CH', 'CL', 'CO', 'CR', 'CY', 'CZ', 'DE', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'FI', 'FJ', 'FO', 'GD', 'GE', 'GF', 'GI', 'GL', 'GP', 'GR', 'GT', 'GU', 'HK', 'HN', 'HR', 'HU', 'ID', 'IE', 'IL', 'IS', 'JM', 'JO', 'JP', 'KE', 'KN', 'KR', 'KW', 'KY', 'KZ', 'CN', 'LC', 'LI', 'LS', 'LT', 'LU', 'LV', 'MA', 'MC', 'MO', 'MP', 'MQ', 'MT', 'MU', 'MW', 'MX', 'MY', 'MZ', 'NC', 'NI', 'NL', 'NO', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PH', 'PL', 'PR', 'PW', 'QA', 'RE', 'RO', 'RS', 'SA', 'SC', 'SE', 'SG', 'SI', 'SK', 'SN', 'SV', 'TC', 'TH', 'TW', 'UY', 'VA', 'VE', 'VI', 'VN', 'ZA', 'IT', 'PT', 'CA', 'FR', 'GB', 'GG', 'JE', 'ES', 'US', 'IN'], 'buying_countries': ['AD', 'AE', 'AG', 'AI', 'AL', 'AM', 'AO', 'AR', 'AS', 'AT', 'AU', 'AW', 'BA', 'BB', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BM', 'BO', 'BR', 'BS', 'BT', 'BW', 'BZ', 'CH', 'CI', 'CK', 'CL', 'CM', 'CO', 'CR', 'CV', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'ER', 'ET', 'FI', 'FJ', 'FO', 'GD', 'GE', 'GF', 'GI', 'GL', 'GM', 'GN', 'GP', 'GR', 'GT', 'GU', 'GW', 'GY', 'HK', 'HN', 'HR', 'HU', 'ID', 'IE', 'IL', 'IS', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KR', 'KW', 'KY', 'KZ', 'LA', 'CN', 'LC', 'LI', 'LK', 'LS', 'LT', 'LU', 'LV', 'MA', 'MC', 'ME', 'MG', 'MH', 'MK', 'ML', 'MN', 'MO', 'MP', 'MQ', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NC', 'NE', 'NF', 'NG', 'NI', 'NL', 'NO', 'NP', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PL', 'PR', 'PW', 'PY', 'QA', 'RE', 'RO', 'RS', 'RW', 'SA', 'SB', 'SC', 'SE', 'SG', 'SI', 'SK', 'SL', 'SN', 'SR', 'ST', 'SV', 'SZ', 'TC', 'TD', 'TG', 'TH', 'TJ', 'TM', 'TN', 'TO', 'TV', 'TW', 'TZ', 'UG', 'UY', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW', 'AZ', 'BN', 'CD', 'CG', 'EG', 'FM', 'GA', 'IT', 'MD', 'NA', 'PT', 'SM', 'TR', 'TT', 'CA', 'FR', 'GB', 'GG', 'JE', 'ES', 'US', 'XK', 'IC', 'IN'], 'objectID': '5e6a1e57-1c7d-435a-82bd-5666a13560fe'}
