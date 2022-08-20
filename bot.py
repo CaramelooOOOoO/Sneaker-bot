@@ -1,9 +1,10 @@
 import discord
+from discord.ext import commands
 from a import search
 
 token = "MTAwOTUyMTI1NDI1ODIwMDYwNw.GMDdeg.UBWgRpQ9tclo4vEciTC1D9Y-BqHLoFWisM1wtc"
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.default())
 
 channel_id = "1009530167082876939"
 
